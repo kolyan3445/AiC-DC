@@ -26,17 +26,16 @@ with open(filename, 'r') as f:
             break
 
         # Разбитие блока
-        chars = list(block)
+        chars = list(str(block.split()))
         i = 0
         while i < len(chars):
             # Проверка на число
-            if chars[i].isdigit():
+            if chars[i].isnumeric():
                 num_str = chars[i]
                 i += 1
-                while i < len(chars) and chars[i].isdigit():
+                while i < len(chars) and chars[i].isnumeric():
                     num_str += chars[i]
                     i += 1
-
                 # Проверка на возрастание
                 is_ascending = True
                 for j in range(len(num_str) - 1):
